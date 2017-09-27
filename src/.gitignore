@@ -1,0 +1,4 @@
+# Sass
+.sass-cache/
+scss/*.css
+scss/*.map
