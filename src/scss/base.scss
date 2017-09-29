@@ -1,8 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 92vh;
-  border-top: 8px solid $orange;
+  min-height: 100vh;
 }
 
 .main-container {
@@ -12,6 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 60px 40px;
+  border-top: 8px solid $orange;
 }
 
 .product-img {
