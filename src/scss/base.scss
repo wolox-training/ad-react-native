@@ -1,7 +1,12 @@
+* {
+  font-family: 'Open Sans', sans-serif;  
+}
+
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  margin: 0;
 }
 
 .main-container {
@@ -10,8 +15,8 @@ body {
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: 60px 40px;
   border-top: 8px solid $orange;
+  padding: 60px 40px;
 }
 
 .product-img {
@@ -27,6 +32,65 @@ body {
 
 .logo-img {
   display: flex;
+}
+
+.features-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.features-decoration {
+  background: url(../assets/triangle.png);
+  width: 100%;
+  height: 10px;
+}
+
+.features-container {
+  background: $light-grey;
+}
+
+.features-wrapper {
+  background: $light-grey;
+  width: 100%;
+  max-width: 1280px;
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.feature-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-title {
+  display: flex;
+  font-weight: bold;
+  font-size: 11pt;
+  color: $dark-grey;
+  margin: 0 0 15px 0;
+}
+
+.feature-description {
+  display: flex;
+  font-size: 11pt;
+  color: $grey;
+  text-align: center;
+}
+
+.traking-img,
+.reminders-img,
+.no-internet-img {
+  display: flex;
+  margin: 0 0 15px 0;
 }
 
 @media screen and (max-width: 768px) {
