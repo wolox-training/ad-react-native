@@ -16,14 +16,13 @@ body {
 
 .product-img {
   display: flex;
-  margin-right: 100px;
 }
 
 .vertical-line {
   background: linear-gradient(transparent, $orange, transparent);
   width: 3px;
   height: 300px;
-  margin-right: 100px;
+  margin: 0 100px;
 }
 
 .logo-img {
