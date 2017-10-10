@@ -35,19 +35,21 @@ body {
 }
 
 .features-container {
+  background: $light-grey;
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
 }
 
-.features-decoration {
-  background: url(../assets/triangle.png);
+.features-container::before {
+  background-image: url(../assets/triangle.png);
   width: 100%;
   height: 10px;
-}
-
-.features-container {
-  background: $light-grey;
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
 }
 
 .features-wrapper {
