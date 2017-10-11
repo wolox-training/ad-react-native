@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './style.css';
 import searchImage from './assets/notifications.svg';
 
-const SearchComponent = props => (
+const SearchComponent = ({ value, onChange }) => (
   <div className="search-component-container">
-    <input className="search-input" name="filter" placeholder="Buscar..." value={props.value} onChange={props.onChange} />
+    <input className="search-input" name="filter" placeholder="Buscar..." value={value} onChange={onChange} />
     <div className="search-img-container">
       <img src={searchImage} alt="search" />
     </div>

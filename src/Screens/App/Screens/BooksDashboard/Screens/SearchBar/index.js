@@ -5,10 +5,10 @@ import FilterSelector from './screens/FilterSelector';
 import SearchComponent from './screens/SearchComponent';
 import './style.css';
 
-const SearchBar = props => (
+const SearchBar = ({ filterType, filter, onChange }) => (
   <div className="search-bar-container">
-    <FilterSelector value={props.filterType} onChange={props.onChange} />
-    <SearchComponent value={props.filter} onChange={props.onChange} />
+    <FilterSelector value={filterType} onChange={onChange} />
+    <SearchComponent value={filter} onChange={onChange} />
   </div>
 );
 

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-const FilterSelector = props => (
+const FilterSelector = ({ value, onChange }) => (
   <div className="filter-container">
-    <select className="filter-type-select" name="filterType" value={props.value} onChange={props.onChange}>
+    <select className="filter-type-select" name="filterType" value={value} onChange={onChange}>
       <option value="" disabled>Seleccionar filtro</option>
       <option value="Title">Título</option>
       <option value="Author">Autor</option>

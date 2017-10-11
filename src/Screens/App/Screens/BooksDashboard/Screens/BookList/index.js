@@ -6,13 +6,13 @@ import books from './resources/books';
 import './style.css';
 
 class BookList extends Component {
-  check = (book) => {
+  check = ({ author, title }) => {
     if (this.props.filterType.length !== 0 && this.props.filter.length !== 0) {
       switch (this.props.filterType) {
         case 'Author':
-          return book.author.toLowerCase().indexOf(this.props.filter.toLowerCase()) > -1;
+          return author.toLowerCase().indexOf(this.props.filter.toLowerCase()) > -1;
         case 'Title':
-          return book.title.toLowerCase().indexOf(this.props.filter.toLowerCase()) > -1;
+          return title.toLowerCase().indexOf(this.props.filter.toLowerCase()) > -1;
         default:
           return false;
       }
