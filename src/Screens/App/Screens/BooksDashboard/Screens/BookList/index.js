@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Book from './screens/Book';
+import Book from './components/Book';
 import books from './resources/books';
 import './style.css';
 
