@@ -1,9 +1,7 @@
 import React from 'react';
 
-import BooksDashboard from './Screens/BooksDashboard';
+import BooksDashboard from './screens/BooksDashboard';
 import './style.css';
-
-import '../../Fonts/roboto.css';
 
 const App = () => <BooksDashboard />;
 

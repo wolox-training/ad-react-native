@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './style.css';
-import searchImage from './Assets/notifications.svg';
+import searchImage from './assets/notifications.svg';
 
 const SearchComponent = props => (
   <div className="search-component-container">

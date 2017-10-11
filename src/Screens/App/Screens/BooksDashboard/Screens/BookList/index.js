@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Book from './Screens/Book';
-import books from './Resources/books';
+import Book from './screens/Book';
+import books from './resources/books';
 import './style.css';
 
 class BookList extends Component {

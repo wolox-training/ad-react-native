@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import defaultBookImage from './Assets/default_book.svg';
+import defaultBookImage from './assets/default_book.svg';
 import './style.css';
 
 const Book = props => (

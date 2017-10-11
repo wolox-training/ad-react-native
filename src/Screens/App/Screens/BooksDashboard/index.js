@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import SearchBar from './Screens/SearchBar';
-import BookList from './Screens/BookList';
+import SearchBar from './screens/SearchBar';
+import BookList from './screens/BookList';
 
 class BooksDashboard extends Component {
   constructor() {
