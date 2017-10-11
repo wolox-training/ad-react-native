@@ -1,3 +1,4 @@
+/* eslint-disable */
 const books = [
    {
       "id":1,
@@ -81,5 +82,6 @@ const books = [
       "image_url":"http://wolox-training.s3.amazonaws.com/uploads/41DNuJfahyL._SX322_BO1_204_203_200_.jpg"
    }
 ]
+/* eslint-enable */
 
 export default books;

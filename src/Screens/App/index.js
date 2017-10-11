@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import BooksDashboard from './Screens/BooksDashboard';
 import './style.css';
-import  '../../Fonts/roboto.css';
 
-class App extends Component {
+import '../../Fonts/roboto.css';
 
-  render() {
-    return <BooksDashboard />
-  }
-
-}
+const App = () => <BooksDashboard />;
 
 export default App;
