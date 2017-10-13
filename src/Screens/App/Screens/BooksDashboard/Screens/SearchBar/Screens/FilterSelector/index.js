@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { selectFilterText, authorText, titleText } from './strings/strings';
 import './style.css';
 
 const FilterSelector = ({ value, onChange }) => (
   <div className="filter-container">
     <select className="filter-type-select" name="filterType" value={value} onChange={onChange}>
-      <option value="" disabled>Seleccionar filtro</option>
-      <option value="title">Título</option>
-      <option value="author">Autor</option>
+      <option value="" disabled>{selectFilterText}</option>
+      <option value="title">{titleText}</option>
+      <option value="author">{authorText}</option>
     </select>
   </div>
 );
