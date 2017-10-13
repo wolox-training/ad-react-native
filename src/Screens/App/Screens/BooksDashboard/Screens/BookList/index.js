@@ -13,7 +13,7 @@ class BookList extends Component {
   check = (book) => {
     const { filter, filterType } = this.props;
 
-    if (filterType.length !== 0 && filter.length !== 0) {
+    if (filterType && filter) {
       return this.search(book[filterType], filter);
     }
     return true;
