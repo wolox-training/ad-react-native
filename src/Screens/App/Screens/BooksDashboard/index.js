@@ -4,18 +4,12 @@ import SearchBar from './screens/SearchBar';
 import BookList from './screens/BookList';
 
 class BooksDashboard extends Component {
-  constructor() {
-    super();
+  state = {
+    filterType: '',
+    filter: ''
+  };
 
-    this.state = {
-      filterType: '',
-      filter: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e) {
+  handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   }
