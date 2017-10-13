@@ -11,7 +11,7 @@
   flex-grow: 1;
   appearance: none;
   outline: 0;
-  border: 0 !important;
+  border: 0;
   font-family: 'Roboto';
   font-style: italic;
   font-size: 14px;
