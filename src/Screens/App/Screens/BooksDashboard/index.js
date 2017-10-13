@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import SearchBar from './screens/SearchBar';
-import BookList from './screens/BookList';
+import DashboardContainer from './components/DashboardContainer';
 
 class BooksDashboard extends Component {
   state = {
@@ -16,14 +15,11 @@ class BooksDashboard extends Component {
 
   render() {
     return (
-      <div className="app">
-        <SearchBar
-          filterType={this.state.filterType}
-          filter={this.state.filter}
-          onChange={this.handleChange}
-        />
-        <BookList filterType={this.state.filterType} filter={this.state.filter} />
-      </div>
+      <DashboardContainer
+        filter={this.state.filter}
+        filterType={this.state.filterType}
+        handleChange={this.handleChange}
+      />
     );
   }
 }
