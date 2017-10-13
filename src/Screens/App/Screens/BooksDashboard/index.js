@@ -16,7 +16,7 @@ class BooksDashboard extends Component {
   }
 
   handleChange(e) {
-    const { target: name, target: value } = e;
+    const { name, value } = e.target;
     this.setState({ [name]: value });
   }
 

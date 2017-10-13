@@ -7,8 +7,8 @@ const FilterSelector = ({ value, onChange }) => (
   <div className="filter-container">
     <select className="filter-type-select" name="filterType" value={value} onChange={onChange}>
       <option value="" disabled>Seleccionar filtro</option>
-      <option value="Title">Título</option>
-      <option value="Author">Autor</option>
+      <option value="title">Título</option>
+      <option value="author">Autor</option>
     </select>
   </div>
 );
