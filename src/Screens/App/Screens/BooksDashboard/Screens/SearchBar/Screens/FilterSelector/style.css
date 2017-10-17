@@ -1,0 +1,39 @@
+.filter-container {
+  margin: 0 28px 0 35px;
+  position: relative;
+  display: block;
+  width: 240px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.filter-container::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 11px 15px;
+  background: #F4F4F4;
+  color: #9B9B9B;
+  pointer-events: none;
+}
+
+.filter-type-select {
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  color: #9B9B9B;
+  font-family: 'Roboto';
+  font-style: italic;
+  font-size: 14px;
+  padding-left: 12px;
+}
+
+.filter-type-select,
+.filter-container {
+  background: #F4F4F4;
+}
