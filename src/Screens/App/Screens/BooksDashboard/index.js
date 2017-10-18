@@ -1,27 +1,34 @@
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { setFilterType, setFilter } from '../../../../redux/actions';
 
 import DashboardContainer from './components/DashboardContainer';
 
-class BooksDashboard extends Component {
-  state = {
-    filterType: '',
-    filter: ''
-  };
-
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
+const mapStateToProps = state => (
+  {
+    filterType: state.filterType,
+    filter: state.filter
   }
+);
 
-  render() {
-    return (
-      <DashboardContainer
-        filter={this.state.filter}
-        filterType={this.state.filterType}
-        handleChange={this.handleChange}
-      />
-    );
+const mapDispatchToProps = dispatch => (
+  {
+    handleChange: (e) => {
+      const { name, value } = e.target;
+      switch (name) {
+        case 'filter':
+          dispatch(setFilter(value));
+          break;
+        case 'filterType':
+          dispatch(setFilterType(value));
+          break;
+        default:
+          break;
+      }
+    }
   }
-}
+);
+
+const BooksDashboard = connect(mapStateToProps, mapDispatchToProps)(DashboardContainer);
 
 export default BooksDashboard;

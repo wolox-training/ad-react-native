@@ -1,41 +1,34 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import Book from './components/Book';
-import books from './resources/books';
-import './style.css';
+import BookListComponent from './components/BookListComponent';
 
-class BookList extends Component {
-  search = (text, filter) => (
-    text.toLowerCase().indexOf(filter.toLowerCase()) > -1
-  );
+const search = (text, filter) => (
+  text.toLowerCase().indexOf(filter.toLowerCase()) > -1
+);
 
-  check = (book) => {
-    const { filter, filterType } = this.props;
-
+const check = (filterType, filter) => (
+  (book) => {
     if (filterType && filter) {
-      return this.search(book[filterType], filter);
+      return search(book[filterType], filter);
     }
     return true;
-  };
-
-  render() {
-    const booksComponents = books
-      .filter(this.check)
-      .map(book =>
-        <Book key={book.id} title={book.title} author={book.author} src={book.image_url} />);
-
-    return (
-      <div className="book-list-container">
-        {booksComponents}
-      </div>
-    );
   }
-}
+);
 
-BookList.propTypes = {
-  filterType: PropTypes.string,
-  filter: PropTypes.string,
-};
+const generateBookList = (books, filterType, filter) =>
+  books
+    .filter(check(filterType, filter))
+    .map(book =>
+      <Book key={book.id} title={book.title} author={book.author} src={book.image_url} />);
+
+const mapStateToProps = state => (
+  {
+    books: generateBookList(state.books, state.filterType, state.filter)
+  }
+);
+
+const BookList = connect(mapStateToProps)(BookListComponent);
 
 export default BookList;
