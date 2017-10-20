@@ -9,7 +9,7 @@ const DashboardContainer = ({ filterType, filter, handleChange }) => (
     <SearchBar
       filterType={filterType}
       filter={filter}
-      onChange={handleChange}
+      handleChange={handleChange}
     />
     <BookList filterType={filterType} filter={filter} />
   </div>

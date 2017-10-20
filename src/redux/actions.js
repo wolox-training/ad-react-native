@@ -1,5 +1,5 @@
 export const actions = {
-  SET_FILTER_TYPE: 'SET_VISIBILITY_FILTER',
+  SET_FILTER_TYPE: 'SET_FILTER_TYPE',
   SET_FILTER: 'SET_FILTER',
   SHOW_BOOK_DETAIL: 'SHOW_BOOK_DETAIL',
   SHOW_BOOK_LIST: 'SHOW_BOOK_LIST',
@@ -8,7 +8,7 @@ export const actions = {
 };
 
 export const filterTypes = {
-  author: 'Author',
+  author: 'author',
   title: 'title'
 };
 

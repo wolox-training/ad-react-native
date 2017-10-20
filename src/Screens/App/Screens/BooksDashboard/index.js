@@ -6,8 +6,8 @@ import DashboardContainer from './components/DashboardContainer';
 
 const mapStateToProps = state => (
   {
-    filterType: state.filterType,
-    filter: state.filter
+    filterType: state.wBooks.filterType,
+    filter: state.wBooks.filter
   }
 );
 

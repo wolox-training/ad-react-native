@@ -4,9 +4,7 @@ import BookListComponent from './components/BookListComponent';
 
 const mapStateToProps = state => (
   {
-    books: state.books,
-    filterType: state.filterType,
-    filter: state.filter
+    books: state.wBooks.filteredBooks
   }
 );
 
