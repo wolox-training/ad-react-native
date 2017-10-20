@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { createSelector } from 'reselect';
 import Inmutable from 'seamless-immutable';
 
 import { actions } from './actions';
@@ -16,6 +17,17 @@ const defaultState = Inmutable({
 
 const search = (text, filter) => (
   text.toLowerCase().indexOf(filter.toLowerCase()) > -1
+);
+
+const booksSelector = state => state.books;
+const filterTypeSelector = state => state.filterType;
+const filterSelector = state => state.filter;
+
+const filteredBooksSelector = createSelector(
+  booksSelector,
+  filterTypeSelector,
+  filterSelector,
+  (books, filterType, filter) => books.filter(book => search(book[filterType], filter))
 );
 
 function wBooks(state = defaultState.wBooks, action) {
@@ -38,9 +50,7 @@ function wBooks(state = defaultState.wBooks, action) {
   }
 
   if (nextState.filterType && nextState.filter && nextState.books.length > 0) {
-    const { filterType, filter } = nextState;
-    const filteredBooks = nextState.books
-      .filter(book => search(book[filterType], filter));
+    const filteredBooks = filteredBooksSelector(nextState);
     nextState = nextState.merge({ filteredBooks });
   } else {
     nextState = nextState.merge({ filteredBooks: nextState.books });
