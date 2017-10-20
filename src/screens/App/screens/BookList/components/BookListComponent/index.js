@@ -29,7 +29,10 @@ class BookListComponent extends Component {
 }
 
 BookListComponent.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.object)
+  books: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired
+  }))
 };
 
 export default BookListComponent;
