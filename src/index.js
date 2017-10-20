@@ -8,7 +8,6 @@ import { createStore, applyMiddleware } from 'redux';
 import App from './screens/App';
 import './fonts/roboto.css';
 import wBookApp from './redux/reducers';
-import { fetchBooks } from './redux/asyncActions';
 
 const loggerMiddleware = createLogger();
 
@@ -19,8 +18,6 @@ const store = createStore(
     loggerMiddleware
   )
 );
-
-store.dispatch(fetchBooks());
 
 render(
   <Provider store={store}>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Book from '../Book';
 import './style.css';
+import { fetchBooks } from '../../../../../../redux/asyncActions';
 
 const generateBookList = (books) => {
   if (books) {
@@ -13,11 +14,19 @@ const generateBookList = (books) => {
   return <div />;
 };
 
-const BookListComponent = ({ books }) => (
-  <div className="book-list-container">
-    {generateBookList(books)}
-  </div>
-);
+class BookListComponent extends Component {
+  componentWillMount() {
+    this.props.dispatch(fetchBooks());
+  }
+
+  render() {
+    return (
+      <div className="book-list-container">
+        {generateBookList(this.props.books)}
+      </div>
+    );
+  }
+}
 
 BookListComponent.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object)

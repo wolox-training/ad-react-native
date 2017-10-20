@@ -1,8 +1,31 @@
-import React from 'react';
+import { connect } from 'react-redux';
 
-import BooksDashboard from './screens/BooksDashboard';
+import { setFilterType, setFilter } from '../../redux/actions';
+
+import DashboardContainer from './components/DashboardContainer';
 import './style.css';
 
-const App = () => <BooksDashboard />;
+const mapStateToProps = state => (
+  {
+    filterType: state.wBooks.filterType,
+    filter: state.wBooks.filter
+  }
+);
+
+const mapDispatchToProps = dispatch => (
+  {
+    filterHandleChange: (e) => {
+      const { value } = e.target;
+      dispatch(setFilter(value));
+    },
+    filterTypeHandleChange: (e) => {
+      const { value } = e.target;
+      dispatch(setFilterType(value));
+    }
+  }
+);
+
+
+const App = connect(mapStateToProps, mapDispatchToProps)(DashboardContainer);
 
 export default App;
