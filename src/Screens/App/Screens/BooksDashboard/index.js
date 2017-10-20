@@ -13,18 +13,13 @@ const mapStateToProps = state => (
 
 const mapDispatchToProps = dispatch => (
   {
-    handleChange: (e) => {
-      const { name, value } = e.target;
-      switch (name) {
-        case 'filter':
-          dispatch(setFilter(value));
-          break;
-        case 'filterType':
-          dispatch(setFilterType(value));
-          break;
-        default:
-          break;
-      }
+    filterHandleChange: (e) => {
+      const { value } = e.target;
+      dispatch(setFilter(value));
+    },
+    filterTypeHandleChange: (e) => {
+      const { value } = e.target;
+      dispatch(setFilterType(value));
     }
   }
 );

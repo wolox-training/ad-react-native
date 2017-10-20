@@ -5,17 +5,23 @@ import FilterSelector from './screens/FilterSelector';
 import SearchComponent from './screens/SearchComponent';
 import './style.css';
 
-const SearchBar = ({ filterType, filter, handleChange }) => (
+const SearchBar = ({
+  filterType,
+  filter,
+  filterHandleChange,
+  filterTypeHandleChange
+}) => (
   <div className="search-bar-container">
-    <FilterSelector value={filterType} handleChange={handleChange} />
-    <SearchComponent value={filter} handleChange={handleChange} />
+    <FilterSelector value={filterType} handleChange={filterTypeHandleChange} />
+    <SearchComponent value={filter} handleChange={filterHandleChange} />
   </div>
 );
 
 SearchBar.propTypes = {
   filterType: PropTypes.string,
   filter: PropTypes.string,
-  handleChange: PropTypes.func
+  filterHandleChange: PropTypes.func,
+  filterTypeHandleChange: PropTypes.func
 };
 
 export default SearchBar;
