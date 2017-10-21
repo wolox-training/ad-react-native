@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { createSelector } from 'reselect';
-import Inmutable from 'seamless-immutable';
+import Immutable from 'seamless-immutable';
 
 import { actions } from './actions';
 
-const defaultState = Inmutable({
+const defaultState = Immutable({
   wBooks: {
     filterType: '',
     filter: '',
