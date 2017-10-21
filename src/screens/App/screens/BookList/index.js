@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import BookListComponent from './components/BookListComponent';
+import BookListFetch from './components/BookListFetch';
 
 const mapStateToProps = state => (
   {
@@ -8,6 +8,6 @@ const mapStateToProps = state => (
   }
 );
 
-const BookList = connect(mapStateToProps)(BookListComponent);
+const BookList = connect(mapStateToProps)(BookListFetch);
 
 export default BookList;
