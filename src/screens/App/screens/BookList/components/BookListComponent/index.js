@@ -11,7 +11,7 @@ const generateBookList = (books) => {
       .map(book =>
         <Book key={book.id} title={book.title} author={book.author} src={book.image_url} />);
   }
-  return <div />;
+  return null;
 };
 
 class BookListComponent extends Component {
