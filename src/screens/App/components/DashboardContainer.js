@@ -4,21 +4,28 @@ import PropTypes from 'prop-types';
 import BookList from '../screens/BookList';
 import SearchBar from '../screens/SearchBar';
 
-const DashboardContainer = ({ filterType, filter, handleChange }) => (
+const DashboardContainer = ({
+  filterType,
+  filter,
+  filterHandleChange,
+  filterTypeHandleChange
+}) => (
   <div className="app">
     <SearchBar
       filterType={filterType}
       filter={filter}
-      onChange={handleChange}
+      filterHandleChange={filterHandleChange}
+      filterTypeHandleChange={filterTypeHandleChange}
     />
-    <BookList filterType={filterType} filter={filter} />
+    <BookList />
   </div>
 );
 
 DashboardContainer.propTypes = {
   filterType: PropTypes.string,
   filter: PropTypes.string,
-  handleChange: PropTypes.func,
+  filterHandleChange: PropTypes.func,
+  filterTypeHandleChange: PropTypes.func
 };
 
 export default DashboardContainer;
