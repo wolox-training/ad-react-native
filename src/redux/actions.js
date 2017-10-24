@@ -30,19 +30,16 @@ function filterBooksIfNeeded(dispatch, state) {
   }
 }
 
-export function setFilterType(filterType) {
-  return (dispatch, getState) => {
-    dispatch({ type: actions.SET_FILTER_TYPE, payload: { filterType } });
+function templateFunction(type, payloadName) {
+  return payload => (dispatch, getState) => {
+    dispatch({ type, payload: { [payloadName]: payload } });
     filterBooksIfNeeded(dispatch, getState().wBooks);
   };
 }
 
-export function setFilter(filter) {
-  return (dispatch, getState) => {
-    dispatch({ type: actions.SET_FILTER, payload: { filter } });
-    filterBooksIfNeeded(dispatch, getState().wBooks);
-  };
-}
+export const setFilter = templateFunction(actions.SET_FILTER, 'filter');
+export const receiveBooks = templateFunction(actions.RECEIVE_BOOKS, 'books');
+export const setFilterType = templateFunction(actions.SET_FILTER_TYPE, 'filterType');
 
 export function showBookDetail(id) {
   return {
@@ -60,12 +57,5 @@ export function showBookList() {
 export function requestBooks() {
   return {
     type: actions.REQUEST_BOOKS
-  };
-}
-
-export function receiveBooks(books) {
-  return (dispatch, getState) => {
-    dispatch({ type: actions.RECEIVE_BOOKS, payload: { books } });
-    filterBooksIfNeeded(dispatch, getState().wBooks);
   };
 }
