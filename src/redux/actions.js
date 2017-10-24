@@ -23,23 +23,24 @@ export function filterBooks(filterType, filter) {
   };
 }
 
+function filterBooksIfNeeded(dispatch, state) {
+  const { filterType, filter, books } = state;
+  if (filterType && filter !== null && books.length > 0) {
+    dispatch(filterBooks(filterType, filter));
+  }
+}
+
 export function setFilterType(filterType) {
   return (dispatch, getState) => {
     dispatch({ type: actions.SET_FILTER_TYPE, payload: { filterType } });
-    const nextState = getState().wBooks;
-    if (nextState.filterType && nextState.filter && nextState.books.length > 0) {
-      dispatch(filterBooks(nextState.filterType, nextState.filter));
-    }
+    filterBooksIfNeeded(dispatch, getState().wBooks);
   };
 }
 
 export function setFilter(filter) {
   return (dispatch, getState) => {
     dispatch({ type: actions.SET_FILTER, payload: { filter } });
-    const nextState = getState().wBooks;
-    if (nextState.filterType && nextState.filter !== null && nextState.books.length > 0) {
-      dispatch(filterBooks(nextState.filterType, nextState.filter));
-    }
+    filterBooksIfNeeded(dispatch, getState().wBooks);
   };
 }
 
@@ -65,9 +66,6 @@ export function requestBooks() {
 export function receiveBooks(books) {
   return (dispatch, getState) => {
     dispatch({ type: actions.RECEIVE_BOOKS, payload: { books } });
-    const nextState = getState().wBooks;
-    if (nextState.filterType && nextState.filter && nextState.books.length > 0) {
-      dispatch(filterBooks(nextState.filterType, nextState.filter));
-    }
+    filterBooksIfNeeded(dispatch, getState().wBooks);
   };
 }
