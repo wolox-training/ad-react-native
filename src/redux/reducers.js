@@ -31,32 +31,26 @@ const filteredBooksSelector = createSelector(
 );
 
 function wBooks(state = defaultState.wBooks, action) {
-  let nextState = state;
   switch (action.type) {
     case actions.SET_FILTER_TYPE:
-      nextState = nextState.merge({ filterType: action.payload.filterType });
-      break;
+      return state.merge({ filterType: action.payload.filterType });
 
     case actions.SET_FILTER:
-      nextState = nextState.merge({ filter: action.payload.filter });
-      break;
+      return state.merge({ filter: action.payload.filter });
 
     case actions.RECEIVE_BOOKS:
-      nextState = nextState.merge({ books: action.payload.books });
-      break;
+      return state.merge({ books: action.payload.books, filteredBooks: action.payload.books });
+
+    case actions.FILTER_BOOKS:
+    {
+      const filteredBooks = filteredBooksSelector(state);
+      return state.merge({ filteredBooks });
+    }
 
     default:
       return state;
   }
 
-  if (nextState.filterType && nextState.filter && nextState.books.length > 0) {
-    const filteredBooks = filteredBooksSelector(nextState);
-    nextState = nextState.merge({ filteredBooks });
-  } else {
-    nextState = nextState.merge({ filteredBooks: nextState.books });
-  }
-
-  return nextState;
 }
 
 function isFetching(state = defaultState.isFetching, action) {

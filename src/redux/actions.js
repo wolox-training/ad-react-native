@@ -4,7 +4,8 @@ export const actions = {
   SHOW_BOOK_DETAIL: 'SHOW_BOOK_DETAIL',
   SHOW_BOOK_LIST: 'SHOW_BOOK_LIST',
   REQUEST_BOOKS: 'REQUEST_BOOKS',
-  RECEIVE_BOOKS: 'RECEIVE_BOOKS'
+  RECEIVE_BOOKS: 'RECEIVE_BOOKS',
+  FILTER_BOOKS: 'FILTER_BOOKS'
 };
 
 export const filterTypes = {
@@ -12,17 +13,33 @@ export const filterTypes = {
   title: 'title'
 };
 
-export function setFilterType(filterType) {
+export function filterBooks(filterType, filter) {
   return {
-    type: actions.SET_FILTER_TYPE,
-    payload: { filterType }
+    type: actions.FILTER_BOOKS,
+    payload: {
+      filterType,
+      filter
+    }
+  };
+}
+
+export function setFilterType(filterType) {
+  return (dispatch, getState) => {
+    dispatch({ type: actions.SET_FILTER_TYPE, payload: { filterType } });
+    const nextState = getState().wBooks;
+    if (nextState.filterType && nextState.filter && nextState.books.length > 0) {
+      dispatch(filterBooks(nextState.filterType, nextState.filter));
+    }
   };
 }
 
 export function setFilter(filter) {
-  return {
-    type: actions.SET_FILTER,
-    payload: { filter }
+  return (dispatch, getState) => {
+    dispatch({ type: actions.SET_FILTER, payload: { filter } });
+    const nextState = getState().wBooks;
+    if (nextState.filterType && nextState.filter !== null && nextState.books.length > 0) {
+      dispatch(filterBooks(nextState.filterType, nextState.filter));
+    }
   };
 }
 
@@ -46,8 +63,11 @@ export function requestBooks() {
 }
 
 export function receiveBooks(books) {
-  return {
-    type: actions.RECEIVE_BOOKS,
-    payload: { books }
+  return (dispatch, getState) => {
+    dispatch({ type: actions.RECEIVE_BOOKS, payload: { books } });
+    const nextState = getState().wBooks;
+    if (nextState.filterType && nextState.filter && nextState.books.length > 0) {
+      dispatch(filterBooks(nextState.filterType, nextState.filter));
+    }
   };
 }
